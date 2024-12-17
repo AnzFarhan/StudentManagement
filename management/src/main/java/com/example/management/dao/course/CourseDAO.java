@@ -8,6 +8,6 @@ public interface CourseDAO {
 
     List<Course> retrieveCourse(); //retrieve all course
     Course createCourse(Course course); //create new course
-    List<Course>  updateCourse(Course course); //update the course
-    List<Course> deleteCourse(Course course); //delete the course by code
+    List<Course>  updateCourse(String code, Course course); //update the course
+    List<Course> deleteCourse(String code); //delete the course by code
 }
