@@ -48,12 +48,12 @@ public class CourseDAOimpl implements CourseDAO {
     }
 
     @Override
-    public List<Course> updateCourse(Course course) {
+    public List<Course> updateCourse(String code, Course course) {
         String sql = "UPDATE course SET name = :name, mark = :mark, min_mark = minMark WHERE code = :code";
 
         // Create MapSqlParameterSource to set the named parameters
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("code", course.getCode());
+        params.addValue("code", code);
         params.addValue("name", course.getName());
         params.addValue("mark", course.getMark());
         params.addValue("minMark", course.getMinMark());
@@ -65,12 +65,12 @@ public class CourseDAOimpl implements CourseDAO {
     }
 
     @Override
-    public List<Course> deleteCourse(Course course) {
+    public List<Course> deleteCourse(String code) {
         String sql = "DELETE FROM Course WHERE code = :code";
 
         // Create MapSqlParameterSource to bind the named parameter
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("code", course.getCode());
+        params.addValue("code", code);
 
         // Execute the delete operation
         jdbcTemplate.update(sql, params);
