@@ -25,14 +25,14 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
-    public List<Course> updateCourse(Course course) {
+    public List<Course> updateCourse(String code, Course course) {
 
-        return courseDAO.updateCourse(course);
+        return courseDAO.updateCourse(code, course);
     }
 
     @Override
-    public List<Course> deleteCourse(Course course) {
+    public List<Course> deleteCourse(String code) {
 
-        return courseDAO.deleteCourse(course);
+        return courseDAO.deleteCourse(code);
     }
 }
